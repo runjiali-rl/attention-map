@@ -17,7 +17,7 @@ def parse_args():
     parser.add_argument('--prompt', type=str, default="a sheep with a lion head", help='prompt for image generation')
     parser.add_argument('--height', type=int, default=512, help='height of image')
     parser.add_argument('--width', type=int, default=768, help='width of image')
-    parser.add_argument('--model_name', type=str, default='sdxl', help='model name')
+    parser.add_argument('--model_name', type=str, default='sd3', help='model name')
     parser.add_argument('--cache_dir', type=str, default='/homes/55/runjia/scratch/diffusion_model_weights', help='cache directory')
     return parser.parse_args()
 

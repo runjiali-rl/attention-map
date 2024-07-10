@@ -66,7 +66,7 @@ def register_cross_attention_hook(unet, model_name='sd3'):
 def set_layer_with_name_and_path(model, target_name="attn2", current_path=""):
     if model.__class__.__name__ == 'UNet2DConditionModel':
         model.forward = UNet2DConditionModelForward.__get__(model, UNet2DConditionModel)
-
+    a = [layer.__class__.__name__ for name, layer in model.named_children()]
     for name, layer in model.named_children():
         
         if layer.__class__.__name__ == 'Transformer2DModel':

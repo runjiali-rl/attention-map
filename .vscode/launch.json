@@ -17,7 +17,7 @@
                 "CUDA_VISIBLE_DEVICES": "0",
             },
             "args": [
-        
+                "--model_name", "sd2"
 
             ],
         }
