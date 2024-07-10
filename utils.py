@@ -38,9 +38,15 @@ def hook_fn(name,detach=True):
     return forward_hook
 
 
-def register_cross_attention_hook(unet):
+def register_cross_attention_hook(unet, model_name='sd3'):
+    a = list(unet.named_modules())
     for name, module in unet.named_modules():
-        if not name.split('.')[-1].startswith('attn2'):
+        if not name.split('.')[-1].startswith('attn2') and model_name != 'sd3':
+            # only for sd2 and sdxl
+            continue
+
+        if not name.split('.')[-1].startswith('attn') and model_name == 'sd3':
+            # only for sd3
             continue
 
         if isinstance(module.processor, AttnProcessor):
@@ -68,6 +74,8 @@ def set_layer_with_name_and_path(model, target_name="attn2", current_path=""):
         
         elif layer.__class__.__name__ == 'BasicTransformerBlock':
             layer.forward = BasicTransformerBlockForward.__get__(layer, BasicTransformerBlock)
+        
+        
         
         new_path = current_path + '.' + name if current_path else name
         set_layer_with_name_and_path(layer, target_name, new_path)

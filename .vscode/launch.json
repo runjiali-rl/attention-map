@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "threestudio",
+            "type": "python",
+            "python": "python3", // /homes/53/kevinsun/anaconda3/envs/cutler/bin/
+            "request": "launch",
+
+            "program": "t2i.py",
+
+            
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0",
+            },
+            "args": [
+        
+
+            ],
+        }
+    ]
+}
